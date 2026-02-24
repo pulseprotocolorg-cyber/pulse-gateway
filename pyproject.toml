@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pulse-gateway"
+version = "0.1.0"
+description = "Secure API gateway for PULSE Protocol — route to any AI or exchange"
+license = "Apache-2.0"
+requires-python = ">=3.8"
+authors = [
+    {name = "PULSE Protocol Team", email = "pulse@protocol.org"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Security",
+]
+dependencies = [
+    "pulse-protocol>=0.5.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+]
+
+[project.optional-dependencies]
+all = [
+    "pulse-openai>=0.1.0",
+    "pulse-anthropic>=0.1.0",
+    "pulse-binance>=0.1.0",
+    "pulse-bybit>=0.1.0",
+    "pulse-kraken>=0.1.0",
+    "pulse-okx>=0.1.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "httpx>=0.24.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/pulseprotocolorg-cyber/pulse-gateway"
+Repository = "https://github.com/pulseprotocolorg-cyber/pulse-gateway"
+
+[tool.setuptools.packages.find]
+include = ["pulse_gateway*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
